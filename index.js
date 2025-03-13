@@ -11,7 +11,7 @@ const path=require('path');
 
 const app=express()
 
-const port=4000;
+const port=process.env.PORT || 4000;
 
 dotEnv.config();
 
@@ -34,6 +34,6 @@ app.listen(port,()=>{
 });
 
 
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
 res.send("<h1>Welcome to Soora");  
 })
