@@ -1,4 +1,5 @@
 const express=require('express');
+const multer=require('multer');
 const firmController=require('../controllers/firmController');
 const verifyToken=require('../middlewares/verifyToken');
 

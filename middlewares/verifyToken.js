@@ -10,10 +10,13 @@ const secretKey=process.env.WhatIsYourName
 
 const verifyToken=async(req,res,next)=>{
   const token=req.headers.token;
+  console.log("Token Received ",token);
   if(!token){
 return res.status(401).json({error:"Token is required"});  
 }try {
-  const decoded=jwt.verify(token,secretKey)
+  const decoded=jwt.verify(token,process.env.WhatIsYourName);
+  console.log("Decoded Token",decoded)
+  
   const vendor=await Vendor.findById(decoded.vendorId);
 
   if(!vendor){
